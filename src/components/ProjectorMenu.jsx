@@ -4,6 +4,9 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, Environment } from '@react-three/drei';
 import rhapsodyLogo from '../assets/newlogo.png';
 
+// Preload the 3D model immediately so it's ready before the menu mounts
+useGLTF.preload('/assets/3d-models/scene.gltf');
+
 const DiscoBall = ({ scale = 3.5 }) => {
     const { scene } = useGLTF('/assets/3d-models/scene.gltf');
     const meshRef = useRef();
@@ -16,9 +19,11 @@ const DiscoBall = ({ scale = 3.5 }) => {
 
     return (
         <group dispose={null}>
-            <ambientLight intensity={1.5} />
-            <pointLight position={[10, 10, 10]} intensity={2} color="#FFB800" />
-            <pointLight position={[-10, -10, -10]} intensity={2} color="#4A0404" />
+            <ambientLight intensity={2.5} />
+            <pointLight position={[5, 5, 5]} intensity={3} color="#FFB800" />
+            <pointLight position={[-5, -5, -5]} intensity={1.5} color="#D8B4FE" />
+            <pointLight position={[0, 0, 6]} intensity={5} color="#ffffff" />
+            <Environment preset="city" />
             <primitive
                 ref={meshRef}
                 object={scene}
@@ -86,24 +91,24 @@ const ProjectorMenu = ({ isFooterVisible, onNavigate }) => {
                 >
                     <div className="absolute inset-0 z-0">
                         <Canvas
-                            dpr={window.devicePixelRatio}
-                            gl={{ alpha: true, antialias: true }}
+                            dpr={[1, 2]}
+                            gl={{ alpha: true, antialias: false, powerPreference: 'high-performance' }}
                             camera={{ position: [0, 0, 4], fov: 45 }}
+                            frameloop="always"
                         >
                             <Suspense fallback={null}>
                                 <DiscoBall scale={isMobile ? 2.6 : 3.2} />
-                                <Environment preset="city" />
                             </Suspense>
                         </Canvas>
                     </div>
 
                     <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                        <div className="relative w-8 h-8 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+                        <div className="relative w-8 h-8 opacity-40">
                             <span className={`absolute inset-0 transition-all duration-300 transform ${isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'}`}>
-                                <Menu size={32} className="text-white" strokeWidth={2.5} />
+                                <Menu size={32} className="text-white" strokeWidth={2} />
                             </span>
                             <span className={`absolute inset-0 transition-all duration-300 transform ${isOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'}`}>
-                                <X size={32} className="text-white" strokeWidth={2.5} />
+                                <X size={32} className="text-white" strokeWidth={2} />
                             </span>
                         </div>
                     </div>

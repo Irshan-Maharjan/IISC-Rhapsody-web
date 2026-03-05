@@ -164,7 +164,7 @@ const EarlyBirdSection = () => {
                             />
 
                             {/* Card */}
-                            <div className="relative w-64 h-64 md:w-80 md:h-80 bg-white/5 backdrop-blur-2xl border border-white/10 p-3 md:p-5 shadow-[0_30px_80px_rgba(0,0,0,0.5)]"
+                            <div className="relative w-36 h-36 md:w-80 md:h-80 bg-white/5 backdrop-blur-2xl border border-white/10 p-1.5 md:p-5 shadow-[0_30px_80px_rgba(0,0,0,0.5)]"
                                 style={{ transition: 'border-color 0.4s', borderColor: qrHovered ? 'rgba(255,184,0,0.35)' : 'rgba(255,255,255,0.1)' }}
                             >
                                 {/* Corner brackets */}
@@ -179,11 +179,11 @@ const EarlyBirdSection = () => {
                                     <div className="absolute top-0 left-0 w-full h-0.5 bg-[#FFB800] shadow-[0_0_15px_#FFB800] z-20 animate-scan" />
 
                                     {/* QR Code Image */}
-                                    <div className="z-10 bg-white p-2 md:p-3 mb-2 md:mb-3">
+                                    <div className="z-10 bg-white p-1 md:p-3 mb-1 md:mb-3">
                                         <img
                                             src={earlyBirdQr}
                                             alt="Early Bird Fest Pass QR"
-                                            className="w-32 h-32 md:w-44 md:h-44 object-contain"
+                                            className="w-16 h-16 md:w-44 md:h-44 object-contain"
                                             style={{ filter: qrHovered ? 'none' : 'grayscale(20%)', transition: 'filter 0.5s' }}
                                         />
                                     </div>

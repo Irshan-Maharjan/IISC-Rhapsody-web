@@ -78,7 +78,7 @@ const EarlyBirdModal = ({ onClose }) => {
 
             <div
                 ref={cardRef}
-                className="relative z-10 w-full max-w-[92%] sm:max-w-4xl rounded-3xl overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.8)] border border-white/10"
+                className="relative z-10 w-full max-w-[88%] sm:max-w-4xl rounded-3xl overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.8)] border border-white/10"
                 style={{ maxHeight: '90vh' }}
             >
                 {/* Background Image */}
@@ -102,9 +102,9 @@ const EarlyBirdModal = ({ onClose }) => {
                     </svg>
                 </button>
 
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 p-8 md:p-14">
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 p-5 md:p-14">
                     {/* LEFT: Copy */}
-                    <div className="w-full md:w-3/5 space-y-6">
+                    <div className="w-full md:w-3/5 space-y-3 md:space-y-6">
                         <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#FFB800]/10 border border-[#FFB800]/30">
                             <span className="w-2 h-2 rounded-full bg-[#FFB800] animate-pulse" />
                             <span className="text-[#FFB800] text-[10px] font-bold tracking-[0.3em] uppercase">
@@ -112,14 +112,14 @@ const EarlyBirdModal = ({ onClose }) => {
                             </span>
                         </div>
 
-                        <h2 className="text-4xl md:text-6xl font-display font-black text-white leading-[0.9] tracking-tighter uppercase">
+                        <h2 className="text-2xl md:text-6xl font-display font-black text-white leading-[0.9] tracking-tighter uppercase">
                             EARLY BIRD<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB800] via-white to-[#D8B4FE]">
                                 FEST PASS
                             </span>
                         </h2>
 
-                        <p className="text-base md:text-lg text-white/70 font-light leading-relaxed max-w-md">
+                        <p className="text-sm md:text-lg text-white/70 font-light leading-relaxed max-w-md">
                             Experience RHAPSODY 4.0 at its fullest. Get exclusive access to all events, pronites, and workshops at a special discounted price.
                         </p>
 
@@ -145,7 +145,7 @@ const EarlyBirdModal = ({ onClose }) => {
                     <div className="w-full md:w-2/5 flex justify-center md:justify-end shrink-0">
                         <div
                             ref={qrRef}
-                            className="relative w-64 h-64 md:w-72 md:h-72 bg-white/5 backdrop-blur-2xl border border-white/10 p-3 shadow-2xl"
+                            className="relative w-44 h-44 md:w-72 md:h-72 bg-white/5 backdrop-blur-2xl border border-white/10 p-2 md:p-3 shadow-2xl"
                         >
                             <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#FFB800]" />
                             <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#FFB800]" />
@@ -155,11 +155,11 @@ const EarlyBirdModal = ({ onClose }) => {
                             <div className="w-full h-full border border-white/5 bg-[#1a0505] flex flex-col items-center justify-center p-3 text-center relative overflow-hidden">
                                 <div className="absolute top-0 left-0 w-full h-0.5 bg-[#FFB800] shadow-[0_0_12px_#FFB800] z-20 animate-scan" />
 
-                                <div className="z-10 bg-white p-2 mb-3">
+                                <div className="z-10 bg-white p-1.5 md:p-2 mb-1.5 md:mb-3">
                                     <img
                                         src={earlyBirdQr}
                                         alt="Early Bird QR"
-                                        className="w-36 h-36 md:w-44 md:h-44 object-contain"
+                                        className="w-24 h-24 md:w-44 md:h-44 object-contain"
                                     />
                                 </div>
                                 <p className="text-[#FFB800] font-black text-[10px] tracking-widest uppercase">

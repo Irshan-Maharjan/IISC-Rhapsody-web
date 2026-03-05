@@ -44,8 +44,18 @@ const ImageSlider = ({ images, interval = 3000 }) => {
 const PronitesSection = ({ onOpenLineup }) => {
     const sectionRef = useRef(null);
     const contentRef = useRef(null);
+    const sliderRef = useRef(null);
+    const touchStartX = useRef(null);
+    const autoSlideRef = useRef(null);
     const [activeDay, setActiveDay] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    const startAutoSlide = () => {
+        if (autoSlideRef.current) clearInterval(autoSlideRef.current);
+        autoSlideRef.current = setInterval(() => {
+            setActiveDay(prev => (prev + 1) % 3);
+        }, 5000);
+    };
 
     const day0Images = [sonewImg];
     const day1Images = [terimImg, raftaarImg, someoneImg];
@@ -55,16 +65,30 @@ const PronitesSection = ({ onOpenLineup }) => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
         window.addEventListener('resize', handleResize);
 
-        // Auto-advance active day every 5 seconds
-        const autoSlide = setInterval(() => {
-            setActiveDay(prev => (prev + 1) % 3);
-        }, 5000);
+        startAutoSlide();
 
         return () => {
             window.removeEventListener('resize', handleResize);
-            clearInterval(autoSlide);
+            if (autoSlideRef.current) clearInterval(autoSlideRef.current);
         };
     }, []);
+
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e) => {
+        if (touchStartX.current === null) return;
+        const delta = touchStartX.current - e.changedTouches[0].clientX;
+        if (Math.abs(delta) > 50) {
+            setActiveDay(prev => {
+                if (delta > 0) return Math.min(prev + 1, 2); // swipe left → next
+                return Math.max(prev - 1, 0);                // swipe right → prev
+            });
+            startAutoSlide(); // reset timer so auto-slide doesn't fight the user
+        }
+        touchStartX.current = null;
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -138,7 +162,10 @@ const PronitesSection = ({ onOpenLineup }) => {
                     </p>
 
                     {/* Poster Grid - Desktop Grid / Mobile Slider */}
-                    <div className="relative w-full max-w-7xl mx-auto px-4 md:px-0 mt-8">
+                    <div className="relative w-full max-w-7xl mx-auto px-4 md:px-0 mt-8"
+                        onTouchStart={isMobile ? handleTouchStart : undefined}
+                        onTouchEnd={isMobile ? handleTouchEnd : undefined}
+                    >
                         <div className={cn(
                             "relative transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]",
                             isMobile ? "flex flex-row items-center gap-6" : "flex flex-row flex-wrap justify-center items-center gap-12 md:gap-20"
