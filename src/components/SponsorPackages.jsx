@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import spso1 from '../assets/spso1c.webp';
 import spso2 from '../assets/spso2c.webp';
 import spso3 from '../assets/spso3c.webp';
@@ -72,80 +72,74 @@ const SponsorPackages = ({ onClose }) => {
     return (
         <div
             ref={overlayRef}
-            className="fixed inset-0 z-[300] flex flex-col"
-            style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0505 50%, #0d0d0d 100%)' }}
+            data-lenis-prevent
+            className="fixed inset-0 z-[150] bg-[#0a0202] overflow-hidden flex flex-col animate-fade-in"
         >
-            {/* Dot grid texture */}
-            <div
-                className="absolute inset-0 opacity-[0.06] pointer-events-none"
-                style={{
-                    backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,184,0,0.4) 1px, transparent 0)',
-                    backgroundSize: '40px 40px',
-                }}
-            />
+            {/* Full Container Background */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80"
+                    alt="Sponsorship Background"
+                    className="w-full h-full object-cover opacity-30 brightness-[0.4]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0202]/80 via-transparent to-[#0a0202]/95" />
+            </div>
 
-            {/* Ambient glows */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(255,184,0,0.06) 0%, transparent 70%)', filter: 'blur(40px)' }} />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(74,4,4,0.3) 0%, transparent 70%)', filter: 'blur(60px)' }} />
-
-            {/* Back Button */}
-            <div className="flex-shrink-0 w-full flex justify-center z-[90] pt-6 pb-2">
+            {/* Sticky Navigation Header */}
+            <div className="sticky top-0 left-0 w-full z-[160] flex justify-center px-6 md:px-12 py-8 pointer-events-none">
                 <button
                     onClick={handleClose}
-                    className="rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-all duration-300 shadow-2xl px-6 py-2 h-auto text-xs md:text-sm font-medium tracking-wider uppercase flex items-center gap-2 group"
+                    className="pointer-events-auto flex items-center gap-2 px-6 py-2.5 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full text-white hover:bg-[#FFB800] hover:text-black transition-all duration-300 group shadow-2xl"
                 >
-                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
-                    Back
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest">Back to Partners</span>
                 </button>
             </div>
 
-            {/* Poster Grid */}
-            <div ref={contentRef} className="relative z-10 flex-1 min-h-0 overflow-y-auto px-6 md:px-12 py-10" style={{ WebkitOverflowScrolling: 'touch' }}>
-                <p className="text-white/40 text-sm font-light tracking-wide text-center mb-10">
-                    Click on a poster to expand
-                </p>
+            <div className="flex-1 overflow-y-auto relative z-10 py-12 md:py-24 px-6 md:px-12">
+                <div className="text-center mb-16 relative">
+                    <span className="text-[#FFB800] font-medium uppercase tracking-[0.3em] text-sm mb-4 block animate-fade-in">
+                        Collaborate With Us
+                    </span>
+                    <h2 className="text-4xl md:text-7xl font-display font-bold text-white mb-6 uppercase tracking-tighter shadow-2xl drop-shadow-lg">
+                        SPONSORSHIP <span className="text-[#FFB800]">PACKAGES</span>
+                    </h2>
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
+                        Partner with IISc's flagship cultural festival. Unlock exclusive branding opportunities and connect with the brightest minds in the country.
+                    </p>
+                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-                    {posters.map((poster, i) => (
-                        <div
-                            key={i}
-                            onClick={() => openLightbox(i)}
-                            className="group relative cursor-pointer rounded-xl overflow-hidden border border-white/10 shadow-2xl hover:border-[#FFB800]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,184,0,0.15)]"
-                            style={{ aspectRatio: '3/4' }}
-                        >
-                            {/* Hover overlay */}
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 z-10" />
+                {/* Poster Grid */}
+                <div ref={contentRef} className="max-w-7xl mx-auto">
+                    <p className="text-white/40 text-[10px] uppercase font-bold tracking-[0.3em] text-center mb-12">
+                        Click to Expand Packages
+                    </p>
 
-                            {/* Expand icon */}
-                            <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-white">
-                                        <path d="M3 3h5M3 3v5M3 3l5.5 5.5M17 3h-5M17 3v5M17 3l-5.5 5.5M3 17h5M3 17v-5M3 17l5.5-5.5M17 17h-5M17 17v-5M17 17l-5.5-5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                                    </svg>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-32">
+                        {posters.map((poster, i) => (
+                            <div
+                                key={i}
+                                onClick={() => openLightbox(i)}
+                                className="group relative cursor-pointer rounded-2xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl hover:border-[#FFB800]/50 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(255,184,0,0.2)]"
+                                style={{ aspectRatio: '3/4' }}
+                            >
+                                <img
+                                    src={poster.src}
+                                    alt={poster.label}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+
+                                {/* Hover Effect Brackets/Decor */}
+                                <div className="absolute inset-4 border border-[#FFB800]/0 group-hover:border-[#FFB800]/40 transition-all duration-700 rounded-xl" />
+
+                                <div className="absolute bottom-0 left-0 w-full p-8 z-20">
+                                    <p className="text-[#FFB800] text-sm font-black tracking-[0.3em] uppercase mb-1">{poster.label}</p>
+                                    <div className="h-0.5 w-12 bg-[#FFB800] rounded-full group-hover:w-full transition-all duration-500" />
                                 </div>
                             </div>
-
-                            <img
-                                src={poster.src}
-                                alt={poster.label}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-
-                            {/* Label */}
-                            <div className="absolute bottom-0 left-0 right-0 p-4 z-10"
-                                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%)' }}>
-                                <p className="text-[#FFB800] text-xs font-bold tracking-[0.3em] uppercase">{poster.label}</p>
-                            </div>
-
-                            {/* Corner brackets */}
-                            <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-[#FFB800]/0 group-hover:border-[#FFB800]/70 transition-all duration-300" />
-                            <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-[#FFB800]/0 group-hover:border-[#FFB800]/70 transition-all duration-300" />
-                            <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-[#FFB800]/0 group-hover:border-[#FFB800]/70 transition-all duration-300" />
-                            <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-[#FFB800]/0 group-hover:border-[#FFB800]/70 transition-all duration-300" />
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
 
@@ -153,50 +147,24 @@ const SponsorPackages = ({ onClose }) => {
             {lightbox !== null && (
                 <div
                     ref={lightboxRef}
-                    className="fixed inset-0 z-[400] flex items-center justify-center p-4 md:p-10"
-                    style={{ backgroundColor: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(8px)' }}
+                    className="fixed inset-0 z-[500] flex items-center justify-center p-4 md:p-10"
+                    style={{ backgroundColor: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(12px)' }}
                     onClick={closeLightbox}
                 >
-                    {/* Close */}
                     <button
                         onClick={closeLightbox}
-                        className="absolute top-5 right-5 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 border border-white/15 text-white/70 hover:text-white hover:bg-white/20 transition-all duration-200"
+                        className="absolute top-8 right-8 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-xl border border-white/10 text-white hover:bg-[#FFB800] hover:text-black transition-all duration-300 shadow-2xl"
                     >
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                        </svg>
+                        <X size={24} />
                     </button>
-
-                    {/* Package label */}
-                    <div className="absolute top-5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#FFB800]/10 border border-[#FFB800]/25">
-                        <span className="text-[#FFB800] text-xs font-bold tracking-widest uppercase">
-                            {posters[lightbox].label}
-                        </span>
-                    </div>
 
                     <img
                         ref={lightboxImgRef}
                         src={posters[lightbox].src}
                         alt={posters[lightbox].label}
-                        className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/10"
+                        className="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/10"
                         onClick={(e) => e.stopPropagation()}
                     />
-
-                    {/* Prev / Next arrows */}
-                    <button
-                        className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/15 transition-all duration-200 disabled:opacity-20"
-                        disabled={lightbox === 0}
-                        onClick={(e) => { e.stopPropagation(); openLightbox(lightbox - 1); }}
-                    >
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button>
-                    <button
-                        className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/15 transition-all duration-200 disabled:opacity-20"
-                        disabled={lightbox === posters.length - 1}
-                        onClick={(e) => { e.stopPropagation(); openLightbox(lightbox + 1); }}
-                    >
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button>
                 </div>
             )}
         </div>

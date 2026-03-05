@@ -102,9 +102,16 @@ const CampusAmbassador = () => {
                         <div className="flex flex-col sm:flex-row gap-6 pt-4">
                             <button
                                 onClick={handleApply}
-                                className="px-10 py-5 bg-[#FFB800] text-[#220202] font-black text-lg uppercase tracking-wider rounded-none hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-[8px_8px_0px_0px_#220202] cursor-pointer"
+                                className="group relative px-10 py-5 bg-[#FFB800] text-[#0d0d0d] font-black text-sm uppercase tracking-wider overflow-hidden transition-all duration-300 hover:scale-105 shadow-[6px_6px_0px_0px_rgba(255,184,0,0.25)] hover:shadow-[8px_8px_0px_0px_rgba(255,184,0,0.35)] cursor-pointer inline-flex items-center justify-center gap-2"
                             >
-                                Apply Now
+                                {/* Shimmer */}
+                                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                                <span className="relative flex items-center gap-2">
+                                    Apply Now
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </span>
                             </button>
                         </div>
                     </div>

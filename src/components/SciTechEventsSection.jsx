@@ -35,34 +35,25 @@ const Button = ({ className, variant = "default", size = "default", children, ..
 
 const sciTechEvents = [
     {
-        title: "Autodesk H1",
-        description: "Showcase your precision and mastery in 3D design and mechanical modeling with Autodesk tools.",
-        image: "https://images.unsplash.com/photo-1720879996903-24859d1df48f?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
-    },
-    {
-        title: "Autodesk H2",
-        description: "Push the boundaries of design thinking and complex rendering using Autodesk software suites.",
-        image: "https://images.unsplash.com/photo-1605459619674-ad1d39981eae?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#E2E2E2]/30 to-transparent",
-    },
-    {
         title: "FSID",
         description: "Engage in the Foundation for Science Innovation and Development challenge. Prototype solutions for the real world.",
         image: "https://images.unsplash.com/photo-1600869009498-8d429f88d4f5?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
+        color: "from-[#00F2FF]/20 to-transparent",
+        link: "https://unstop.com/p/ideasprint-lab2launch-rhapsody-indian-institute-of-science-1647828"
     },
     {
         title: "ARTPARK",
         description: "Explore the frontiers of AI & Robotics. Create, command, and conquer with autonomous intelligence.",
         image: "https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#E2E2E2]/30 to-transparent",
+        color: "from-[#E2E2E2]/20 to-transparent",
+        link: null // Coming Soon
     },
     {
         title: "Coding",
         description: "The ultimate battle of logic, algorithms, and speed. Prove your prowess in the digital colosseum.",
         image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
+        color: "from-[#00F2FF]/20 to-transparent",
+        link: "https://unstop.com/p/rhapsody-coding-challenge-rhapsody-indian-institute-of-science-1647951"
     }
 ];
 
@@ -76,7 +67,7 @@ const SciTechEventsSection = ({ onClose }) => {
             document.body.style.overflow = 'unset';
             // Trigger refresh after closing modal as layout might shift
             setTimeout(() => {
-                ScrollTrigger.refresh();
+                if (window.ScrollTrigger) window.ScrollTrigger.refresh();
             }, 100);
         };
     }, []);
@@ -85,39 +76,32 @@ const SciTechEventsSection = ({ onClose }) => {
         <section
             id="scitech-events"
             data-lenis-prevent
-            // Matching the Cultural Section's Z-Index and fixed positioning
-            className="fixed inset-0 z-[55] bg-[#220202]/95 backdrop-blur-xl overflow-y-auto overflow-x-hidden min-h-screen animate-fade-in"
+            className="fixed inset-0 z-[150] bg-[#020617] overflow-y-auto overflow-x-hidden animate-fade-in"
         >
-            {/* Back to Events CTA - Sticky positioning aligned with header */}
-            {onClose && (
-                <div className="sticky top-6 w-full flex justify-center z-[90] pointer-events-none mb-4">
-                    <Button
-                        onClick={onClose}
-                        variant="outline"
-                        className="pointer-events-auto rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-all duration-300 shadow-2xl px-6 py-2 h-auto text-xs md:text-sm font-medium tracking-wider uppercase flex items-center gap-2 group"
-                    >
-                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
-                        Back to Events
-                    </Button>
-                </div>
-            )}
+            {/* Full Container Background */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#020617] via-[#020617] to-[#01040a]" />
 
-            {/* Background Decor */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none fixed">
-                <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#220202]/20 rounded-full blur-[120px] animate-pulse" />
-                <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#E2E2E2]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+            {/* Sticky Navigation Header */}
+            <div className="sticky top-0 left-0 w-full z-[160] flex justify-center px-6 md:px-12 py-8 pointer-events-none">
+                <button
+                    onClick={onClose}
+                    className="pointer-events-auto flex items-center gap-2 px-6 py-2.5 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full text-white hover:bg-[#00F2FF] hover:text-black transition-all duration-300 group shadow-[0_0_20px_rgba(0,242,255,0.2)]"
+                >
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest">Back to Events</span>
+                </button>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10 py-24">
+            <div className="container mx-auto px-6 relative z-10 py-12 md:py-24">
                 <div className="text-center mb-16 relative">
-                    <span className="text-[#E2E2E2] font-medium uppercase tracking-[0.3em] text-sm mb-4 block animate-fade-in">
-                        Technological Frontier
+                    <span className="text-[#00F2FF] font-medium uppercase tracking-[0.3em] text-sm mb-4 block animate-fade-in">
+                        The Technological Frontier
                     </span>
                     <h2 className="text-4xl md:text-7xl font-display font-bold text-white mb-6 uppercase tracking-tighter shadow-2xl drop-shadow-lg">
-                        THE <span className="text-[#E2E2E2] glow-text-blue">SCI-TECH</span> CIRCUIT
+                        SCI-TECH <span className="text-[#00F2FF] drop-shadow-[0_0_15px_rgba(0,242,255,0.5)]">CIRCUIT</span>
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
-                        Explore the intersection of logic, creativity, and engineering. From deep-code battles to robotic dominance.
+                        Step into the colosseum of high-order logic and digital supremacy. Where engineering meets pure imagination.
                     </p>
                 </div>
 
@@ -125,7 +109,7 @@ const SciTechEventsSection = ({ onClose }) => {
                     {sciTechEvents.map((event, index) => (
                         <div
                             key={index}
-                            className="group relative bg-[#1A0A0A]/80 backdrop-blur-md rounded-2xl overflow-hidden border border-white/5 hover:border-[#E2E2E2]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(226,226,226,0.3)] block"
+                            className="group relative bg-black/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/5 hover:border-[#00F2FF]/50 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,242,255,0.15)] block"
                         >
                             {/* Image Container */}
                             <div className="relative h-56 overflow-hidden">
@@ -133,19 +117,38 @@ const SciTechEventsSection = ({ onClose }) => {
                                 <img
                                     src={event.image}
                                     alt={event.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-90"
                                     loading="lazy"
                                 />
+                                {/* Tech overlay pattern */}
+                                <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
                             </div>
 
                             {/* Content */}
-                            <div className="p-6 relative z-20 flex flex-col h-[calc(100%-14rem)]">
-                                <h3 className="text-2xl font-display font-bold text-white mb-3 tracking-wide group-hover:text-[#E2E2E2] transition-colors">
-                                    {event.title}
-                                </h3>
-                                <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light flex-grow">
+                            <div className="p-8 relative z-20 flex flex-col h-[calc(100%-14rem)]">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#00F2FF] animate-pulse" />
+                                    <h3 className="text-2xl font-display font-bold text-white tracking-wide group-hover:text-[#00F2FF] transition-colors">
+                                        {event.title}
+                                    </h3>
+                                </div>
+                                <p className="text-gray-400 text-sm leading-relaxed mb-8 font-light flex-grow">
                                     {event.description}
                                 </p>
+                                {event.link ? (
+                                    <a
+                                        href={event.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-auto w-full py-3 bg-[#00F2FF] text-black border border-[#00F2FF]/20 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 hover:bg-white hover:scale-[1.02] text-center"
+                                    >
+                                        Register Now
+                                    </a>
+                                ) : (
+                                    <button className="mt-auto w-full py-3 bg-white/5 text-white/30 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest cursor-not-allowed">
+                                        Coming Soon
+                                    </button>
+                                )}
                             </div>
                         </div>
                     ))}

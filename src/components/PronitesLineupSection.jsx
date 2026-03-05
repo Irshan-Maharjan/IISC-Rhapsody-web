@@ -7,6 +7,7 @@ import coffeeImg from "../assets/coffee.jpeg";
 import sonewImg from "../assets/sonew.jpeg";
 import someoneImg from "../assets/someone.jpeg";
 import somesomeImg from "../assets/somesome.jpeg";
+import terimImg from "../assets/terim.webp";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Button = ({ className, variant = "default", size = "default", children, ...props }) => {
@@ -54,9 +55,13 @@ const PronitesLineupSection = ({ activeDay, onClose }) => {
         };
     }, []);
 
-    const day1Artists = [
-        { name: "Masala Coffee", image: raftaarImg },
+    const day0Artists = [
         { name: "Rahul Dua", image: sonewImg },
+    ];
+
+    const day1Artists = [
+        { name: "Terim", image: terimImg },
+        { name: "Masala Coffee", image: raftaarImg },
         { name: "Rahul Subramanian", image: someoneImg },
     ];
 
@@ -66,50 +71,62 @@ const PronitesLineupSection = ({ activeDay, onClose }) => {
         { name: "Inder Sahani", image: somesomeImg },
     ];
 
-    const artists = activeDay === 1 ? day1Artists : day2Artists;
+    const artists = activeDay === 0 ? day0Artists : activeDay === 1 ? day1Artists : day2Artists;
 
     return (
         <section
             id="pronites-lineup"
             data-lenis-prevent
-            className="fixed inset-0 z-[60] bg-[#1a0505]/98 backdrop-blur-xl overflow-y-auto overflow-x-hidden min-h-screen animate-fade-in"
+            className="fixed inset-0 z-[150] bg-[#0a0202] overflow-y-auto overflow-x-hidden animate-fade-in"
         >
-            {/* Back Button */}
-            <div className="sticky top-6 w-full flex justify-center z-[90] pointer-events-none mb-2">
-                <Button
-                    onClick={onClose}
-                    variant="outline"
-                    className="pointer-events-auto rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-all duration-300 shadow-2xl px-6 py-2 h-auto text-xs md:text-sm font-medium tracking-wider uppercase flex items-center gap-2 group"
-                >
-                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
-                    Back to Pronites
-                </Button>
+            {/* Full Container Background */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1920&q=80"
+                    alt="Pronites Background"
+                    className="w-full h-full object-cover opacity-40 brightness-[0.5]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0202]/80 via-transparent to-[#0a0202]/95" />
             </div>
 
-            <div className="container mx-auto px-4 md:px-6 py-4 md:py-6">
-                <div className="text-center mb-16">
+            {/* Sticky Navigation Header */}
+            <div className="sticky top-0 left-0 w-full z-[160] flex justify-center px-6 md:px-12 py-8 pointer-events-none">
+                <button
+                    onClick={onClose}
+                    className="pointer-events-auto flex items-center gap-2 px-6 py-2.5 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full text-white hover:bg-[#FFB800] hover:text-black transition-all duration-300 group shadow-2xl"
+                >
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest">Back to Pronites</span>
+                </button>
+            </div>
+
+            <div className="container mx-auto px-6 relative z-10 py-12 md:py-24">
+                <div className="text-center mb-16 relative">
                     <span className="text-[#FFB800] font-medium uppercase tracking-[0.3em] text-sm mb-4 block animate-fade-in">
-                        Lineup
+                        The Grand Stage
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-display font-black text-white italic tracking-tighter mb-4 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                        DAY <span className="text-gradient-gold">{activeDay}</span> ARTISTS
+                    <h2 className="text-4xl md:text-7xl font-display font-bold text-white mb-6 uppercase tracking-tighter shadow-2xl drop-shadow-lg">
+                        DAY <span className="text-[#FFB800]">{activeDay}</span> ARTISTS
                     </h2>
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
+                        Experience the magic of the main stage. Witness some of the biggest names in the industry performing live.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto pb-32">
                     {artists.map((artist, index) => (
                         <div key={index} className="group relative flex flex-col items-center">
-                            <div className="relative aspect-[3/4] w-full max-w-sm rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl transition-all duration-500 group-hover:border-[#FFB800]/50 group-hover:shadow-[0_0_30px_rgba(255,184,0,0.2)]">
+                            <div className="relative aspect-[3/4] w-full max-w-sm rounded-2xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl transition-all duration-500 group-hover:border-[#FFB800]/50 group-hover:shadow-[0_20px_40px_-15px_rgba(255,184,0,0.3)]">
                                 <img
                                     src={artist.image}
                                     alt={artist.name}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
 
-                                <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 transition-transform duration-500 group-hover:translate-y-0">
-                                    <h3 className="text-2xl font-display font-bold text-white uppercase tracking-wider mb-1">{artist.name}</h3>
-                                    <div className="h-1 w-12 bg-[#FFB800] rounded-full transform origin-left transition-all duration-500 group-hover:w-full" />
+                                <div className="absolute bottom-0 left-0 w-full p-8 transition-all duration-500">
+                                    <h3 className="text-2xl font-display font-bold text-white uppercase tracking-wider mb-3 group-hover:text-[#FFB800] transition-colors">{artist.name}</h3>
+                                    <div className="h-1 w-12 bg-[#FFB800] rounded-full transform origin-left transition-all duration-500 group-hover:w-full opacity-60" />
                                 </div>
                             </div>
                         </div>

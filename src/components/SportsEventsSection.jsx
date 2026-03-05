@@ -1,6 +1,8 @@
 import React from 'react';
 import { cn } from "../lib/utils";
 import { ArrowLeft } from "lucide-react";
+import kabaddiImg from "../assets/kabaddi.png";
+import khokhoImg from "../assets/khokho.png";
 
 // Local Button Component
 const Button = ({ className, variant = "default", size = "default", children, ...props }) => {
@@ -42,99 +44,97 @@ const sportsEvents = [
         title: "Cricket",
         description: "The gentleman's game. Experience the thrill of every ball in this highly competitive campus tournament.",
         image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#FFB800]/30 to-transparent",
+        color: "from-[#FF4D00]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
         title: "Swimming",
         description: "Dive in and race to the finish line in our heated swimming competitions.",
         image: "https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
+        color: "from-[#220202]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
-        title: "Table Tennis (TT)",
+        title: "Table Tennis",
         description: "Rapid-fire rallies and intense concentration. A test of elite reflexes and technical skill.",
         image: "https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#FFB800]/30 to-transparent",
+        color: "from-[#FF4D00]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
         title: "Carrom",
         description: "Precision, angles, and perfect strikes. Show off your board skills in this classic game.",
         image: "https://images.unsplash.com/photo-1620741212082-4e5c8194883e?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
+        color: "from-[#220202]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
         title: "Chess",
         description: "A battle of minds, strategy, and foresight. Outwit your opponent on the 64 squares.",
         image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#FFB800]/30 to-transparent",
+        color: "from-[#FF4D00]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
         title: "Kabaddi Women",
         description: "Fierce competition and incredible agility. Experience the raw energy of women's Kabaddi.",
-        image: "https://images.unsplash.com/photo-1562016600-ece13e8ba570?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
+        image: kabaddiImg,
+        color: "from-[#220202]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
         title: "Volleyball",
         description: "High-flying action above the net. Power hits, teamwork, and defensive excellence in every set.",
         image: "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#FFB800]/30 to-transparent",
+        color: "from-[#FF4D00]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
-        title: "Frisbee",
+        title: "Ultimate Frisbee",
         description: "Dynamic, non-contact team sport. High-flying discs and athletic plays across the field.",
         image: "https://images.unsplash.com/photo-1649772317307-988009f89c2f?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
+        color: "from-[#220202]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
         title: "Football Women",
         description: "Experience the passion, teamwork, and skill in the women's football tournament.",
         image: "https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#FFB800]/30 to-transparent",
+        color: "from-[#FF4D00]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
-        title: "E Sports",
+        title: "E-Sports",
         description: "Digital battlegrounds and intense reflexes. Compete with the best gamers on campus.",
         image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
+        color: "from-[#220202]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
         title: "Throwball",
         description: "Fast-paced catching and throwing action. A game of quick reflexes and coordinated teamwork.",
         image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#FFB800]/30 to-transparent",
+        color: "from-[#FF4D00]/20 to-transparent",
         link: REGISTRATION_LINK
     },
     {
         title: "Kho Kho",
         description: "Traditional tag game at its most competitive. Incredible speed, stamina, and quick dodges.",
-        image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=800&q=80",
-        color: "from-[#220202]/30 to-transparent",
+        image: khokhoImg,
+        color: "from-[#220202]/20 to-transparent",
         link: REGISTRATION_LINK
     }
 ];
 
 const SportsEventsSection = ({ onClose }) => {
-    // Stop/Start Lenis when modal opens/closes
     React.useEffect(() => {
         window.lenis?.stop();
         document.body.style.overflow = 'hidden';
         return () => {
             window.lenis?.start();
             document.body.style.overflow = 'unset';
-            // Trigger refresh after closing modal as layout might shift
             setTimeout(() => {
-                ScrollTrigger.refresh();
+                if (window.ScrollTrigger) window.ScrollTrigger.refresh();
             }, 100);
         };
     }, []);
@@ -143,38 +143,32 @@ const SportsEventsSection = ({ onClose }) => {
         <section
             id="sports-events"
             data-lenis-prevent
-            className="fixed inset-0 z-[55] bg-[#220202]/95 backdrop-blur-xl overflow-y-auto overflow-x-hidden min-h-screen animate-fade-in"
+            className="fixed inset-0 z-[150] bg-[#0c0101] overflow-y-auto overflow-x-hidden animate-fade-in"
         >
-            {/* Back to Events CTA - Sticky positioning aligned with header */}
-            {onClose && (
-                <div className="sticky top-6 w-full flex justify-center z-[90] pointer-events-none mb-4">
-                    <Button
-                        onClick={onClose}
-                        variant="outline"
-                        className="pointer-events-auto rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-all duration-300 shadow-2xl px-6 py-2 h-auto text-xs md:text-sm font-medium tracking-wider uppercase flex items-center gap-2 group"
-                    >
-                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
-                        Back to Events
-                    </Button>
-                </div>
-            )}
+            {/* Full Container Background */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0c0101] via-[#0c0101] to-[#050000]" />
 
-            {/* Background Decor */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none fixed">
-                <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[#FFB800]/10 rounded-full blur-[120px] animate-pulse" />
-                <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-[#220202]/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+            {/* Sticky Navigation Header */}
+            <div className="sticky top-0 left-0 w-full z-[160] flex justify-center px-6 md:px-12 py-8 pointer-events-none">
+                <button
+                    onClick={onClose}
+                    className="pointer-events-auto flex items-center gap-2 px-6 py-2.5 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full text-white hover:bg-[#FF4D00] hover:text-black transition-all duration-300 group shadow-[0_0_20px_rgba(255,77,0,0.2)]"
+                >
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest">Back to Events</span>
+                </button>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10 py-24">
+            <div className="container mx-auto px-6 relative z-10 py-12 md:py-24">
                 <div className="text-center mb-16 relative">
-                    <span className="text-[#FFB800] font-medium uppercase tracking-[0.3em] text-sm mb-4 block animate-fade-in">
-                        Athletic Arena
+                    <span className="text-[#FF4D00] font-medium uppercase tracking-[0.3em] text-sm mb-4 block animate-fade-in">
+                        The Athletic Arena
                     </span>
                     <h2 className="text-4xl md:text-7xl font-display font-bold text-white mb-6 uppercase tracking-tighter shadow-2xl drop-shadow-lg">
-                        THE <span className="text-accent glow-text-accent">SPORTS</span> SHOWDOWN
+                        THE <span className="text-[#FF4D00] drop-shadow-[0_0_15px_rgba(255,77,0,0.5)]">SPORTS</span> SHOWDOWN
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
-                        Push your limits and ignite your spirit. From team battles to individual tests of endurance, the arena is yours.
+                        Push your limits, ignite your spirit, and conquer the field. The ultimate showdown of grit and glory starts here.
                     </p>
                 </div>
 
@@ -185,7 +179,7 @@ const SportsEventsSection = ({ onClose }) => {
                             href={event.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative bg-[#1A0A0A]/80 backdrop-blur-md rounded-2xl overflow-hidden border border-white/5 hover:border-[#FFB800]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(255,184,0,0.3)] block cursor-pointer"
+                            className="group relative bg-black/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/5 hover:border-[#FF4D00]/50 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(255,77,0,0.15)] block cursor-pointer"
                         >
                             {/* Image Container */}
                             <div className="relative h-56 overflow-hidden">
@@ -193,19 +187,27 @@ const SportsEventsSection = ({ onClose }) => {
                                 <img
                                     src={event.image}
                                     alt={event.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-90"
                                     loading="lazy"
                                 />
+                                {/* Dynamic speed/line pattern overlay */}
+                                <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]" />
                             </div>
 
                             {/* Content */}
-                            <div className="p-6 relative z-20 flex flex-col h-[calc(100%-14rem)]">
-                                <h3 className="text-2xl font-display font-bold text-white mb-3 tracking-wide group-hover:text-[#FFB800] transition-colors">
-                                    {event.title}
-                                </h3>
+                            <div className="p-8 relative z-20 flex flex-col h-[calc(100%-14rem)]">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#FF4D00] animate-pulse" />
+                                    <h3 className="text-2xl font-display font-bold text-white tracking-wide group-hover:text-[#FF4D00] transition-colors">
+                                        {event.title}
+                                    </h3>
+                                </div>
                                 <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light flex-grow">
                                     {event.description}
                                 </p>
+                                <div className="mt-auto w-full py-3 bg-[#FF4D00] text-black border border-[#FF4D00]/20 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 group-hover:bg-white group-hover:scale-[1.02] text-center">
+                                    Register Now
+                                </div>
                             </div>
                         </a>
                     ))}
