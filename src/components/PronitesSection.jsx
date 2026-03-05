@@ -68,35 +68,36 @@ const PronitesSection = ({ onOpenLineup }) => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Main content fade and parallax
+            // Main content subtle entrance (position only)
             gsap.fromTo(contentRef.current,
-                { y: 60, opacity: 0 },
+                { y: 30 },
                 {
-                    y: -20,
-                    opacity: 1,
+                    y: 0,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: sectionRef.current,
-                        start: "top 80%",
-                        end: "bottom 20%",
+                        start: "top 90%",
+                        end: "top 40%",
                         scrub: 1,
                     }
                 }
             );
 
-            // Sequenced sliding entrance for cards
+            // Sequenced sliding entrance for cards (Simplified to avoid transparency issues)
             gsap.from(".animate-slide-up", {
-                x: 100,
-                opacity: 0,
-                duration: 1.2,
-                stagger: 0.3,
-                ease: "power4.out",
+                x: 30,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out",
                 scrollTrigger: {
-                    trigger: ".animate-slide-up",
-                    start: "top 90%",
+                    trigger: sectionRef.current,
+                    start: "top 85%",
                     toggleActions: "play none none reverse"
                 }
             });
+
+            // Ensure positions are recalculated properly
+            ScrollTrigger.refresh();
         }, sectionRef);
 
         return () => ctx.revert();
