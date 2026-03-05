@@ -5,15 +5,7 @@ import { useGLTF, Environment } from '@react-three/drei';
 import rhapsodyLogo from '../assets/newlogo.png';
 
 const DiscoBall = ({ scale = 3.5 }) => {
-<<<<<<< HEAD
-    const { scene } = useGLTF('./assets/3d-models/scene.gltf');
-=======
-<<<<<<< Updated upstream
-    const { scene } = useGLTF('/src/assets/disco_ball/scene.gltf');
-=======
     const { scene } = useGLTF('/assets/3d-models/scene.gltf');
->>>>>>> Stashed changes
->>>>>>> 45f5aeb (Update cultural event rules, pronites section enhancements, and campus ambassador CTA design)
     const meshRef = useRef();
 
     useFrame((state, delta) => {

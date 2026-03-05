@@ -3,39 +3,24 @@ import GlobalBackground from './layouts/GlobalBackground'
 import Hero from './components/Hero'
 import About from './components/About'
 import SplitImageSection from './components/SplitImageSection'
-<<<<<<< HEAD
-=======
-import PronitesSection from './components/PronitesSection'
->>>>>>> 45f5aeb (Update cultural event rules, pronites section enhancements, and campus ambassador CTA design)
 import ProjectorMenu from './components/ProjectorMenu'
 import InteractiveFooter from './components/InteractiveFooter'
 import SponsorsSection from './components/SponsorsSection'
 import SmoothScroll from './components/SmoothScroll'
 import CampusAmbassador from './components/CampusAmbassador'
-<<<<<<< HEAD
-import SponsorUs from './components/SponsorUs';
 import LoadingScreen from './components/LoadingScreen';
+import SponsorUs from './components/SponsorUs';
 import PronitesSection from './components/PronitesSection'
-
-// Lazy load heavy or modal components
-const CulturalEventsSection = lazy(() => import('./components/CulturalEventsSection'));
-=======
-import LoadingScreen from './components/LoadingScreen';
-import SponsorUs from './components/SponsorUs';
 import EarlyBirdSection from './components/EarlyBirdSection'
 
 // Lazy load heavy or modal components
 const CulturalEventsSection = lazy(() => import('./components/CulturalEventsSection'));
 const CulturalEventDetails = lazy(() => import('./components/CulturalEventDetails'));
->>>>>>> 45f5aeb (Update cultural event rules, pronites section enhancements, and campus ambassador CTA design)
 const SciTechEventsSection = lazy(() => import('./components/SciTechEventsSection'));
 const SportsEventsSection = lazy(() => import('./components/SportsEventsSection'));
 const PronitesLineupSection = lazy(() => import('./components/PronitesLineupSection'));
 const CampusAmbassadorModal = lazy(() => import('./components/CampusAmbassadorModal'));
-<<<<<<< HEAD
-=======
 const EarlyBirdModal = lazy(() => import('./components/EarlyBirdModal'));
->>>>>>> 45f5aeb (Update cultural event rules, pronites section enhancements, and campus ambassador CTA design)
 const SponsorPackages = lazy(() => import('./components/SponsorPackages'));
 
 function App() {
@@ -104,16 +89,8 @@ function App() {
         />
       )}
 
-<<<<<<< HEAD
-      <Suspense fallback={null}>
-        {showCaModal && (
-          <CampusAmbassadorModal onClose={() => setShowCaModal(false)} />
-        )}
-      </Suspense>
-
-=======
->>>>>>> 45f5aeb (Update cultural event rules, pronites section enhancements, and campus ambassador CTA design)
       <GlobalBackground>
+        {/* Only mount SmoothScroll (Lenis) after loading — prevents scroll during animation */}
         {!isLoading && <SmoothScroll />}
         <main className="w-full relative">
           <section id="home">
@@ -127,13 +104,7 @@ function App() {
             <PronitesSection onOpenLineup={handleOpenPronites} />
           </div>
 
-<<<<<<< HEAD
-          <Suspense fallback={<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">Loading...</div>}>
-            {showPronitesLineup && <PronitesLineupSection activeDay={activeProniteDay} onClose={() => setShowPronitesLineup(false)} />}
-          </Suspense>
-=======
           <EarlyBirdSection />
->>>>>>> 45f5aeb (Update cultural event rules, pronites section enhancements, and campus ambassador CTA design)
 
           <div id="events">
             <SplitImageSection
@@ -145,15 +116,6 @@ function App() {
 
           <CampusAmbassador />
 
-<<<<<<< HEAD
-          <Suspense fallback={null}>
-            {showCultural && <CulturalEventsSection onClose={() => setShowCultural(false)} />}
-            {showSciTech && <SciTechEventsSection onClose={() => setShowSciTech(false)} />}
-            {showSports && <SportsEventsSection onClose={() => setShowSports(false)} />}
-          </Suspense>
-
-=======
->>>>>>> 45f5aeb (Update cultural event rules, pronites section enhancements, and campus ambassador CTA design)
           <div id="sponsors" className="relative z-10">
             <SponsorsSection />
           </div>
@@ -163,13 +125,6 @@ function App() {
         <InteractiveFooter setIsFooterVisible={setIsFooterVisible} />
       </GlobalBackground>
 
-<<<<<<< HEAD
-      <Suspense fallback={null}>
-        {showSponsorPackages && (
-          <SponsorPackages onClose={() => setShowSponsorPackages(false)} />
-        )}
-      </Suspense>
-=======
       {/* Modals and Overlays - Rendered at the end to ensure proper layering */}
       <Suspense fallback={null}>
         {showEarlyBirdModal && (
@@ -210,7 +165,6 @@ function App() {
           onNavigate={closeAllModals}
         />
       )}
->>>>>>> 45f5aeb (Update cultural event rules, pronites section enhancements, and campus ambassador CTA design)
     </>
   )
 }
