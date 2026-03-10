@@ -41,7 +41,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80",
         color: "from-[#220202]/30 to-transparent",
         link: "https://forms.office.com/r/4wLJ8FBeEL",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/r/personal/tahasaquib_iisc_ac_in/_layouts/15/Doc.aspx?sourcedoc=%7B4B065A0B-9B47-4386-B30B-91EE2C96651F%7D&file=Dance%20Event%20Rules%20Rhapsody%204.0.docx&action=default&mobileredirect=true"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/g/personal/tahasaquib_iisc_ac_in/IQALWgZLR5uGQ7MLke4slmUfAZ8fc3uCje44_MSN-x-KfTk"
     },
     {
         title: "Art",
@@ -50,7 +50,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=800&q=80",
         color: "from-[#FFB800]/30 to-transparent",
         link: "https://forms.office.com/r/UPZyJsURmW",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/r/personal/tahasaquib_iisc_ac_in/_layouts/15/Doc.aspx?sourcedoc=%7B3DFA2193-677F-44AE-A555-020BA5EE788C%7D&file=Art%20Event%20Rules%20Rhapsody%204.0.docx&action=default&mobileredirect=true"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/g/personal/tahasaquib_iisc_ac_in/IQCTIfo9f2euRKVVAgul7niMAZG5GM8M5KStrk8mPNZUnfE?e=NYsmAA"
     },
     {
         title: "Digital Arts",
@@ -59,7 +59,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?auto=format&fit=crop&w=800&q=80",
         color: "from-[#E2E2E2]/30 to-transparent",
         link: "https://forms.office.com/r/Mzwmx05G0H",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/r/personal/tahasaquib_iisc_ac_in/_layouts/15/Doc.aspx?sourcedoc=%7B26A053E0-4848-4D6D-87C2-5970C3C41D9C%7D&file=Digital%20Art%20Event%20Rules%20Rhapsody%204.0.docx&action=default&mobileredirect=true"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/g/personal/tahasaquib_iisc_ac_in/IQDgU6AmSEhtTYfCWXDDxB2cAb-gSVSVHilSWoON9HScn1k"
     },
     {
         title: "Digital Media Arts",
@@ -68,7 +68,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1625690303837-654c9666d2d0?auto=format&fit=crop&w=800&q=80",
         color: "from-[#220202]/30 to-transparent",
         link: "https://forms.office.com/r/VQLSynLK4H",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/r/personal/tahasaquib_iisc_ac_in/_layouts/15/Doc.aspx?sourcedoc=%7BD3CD01C9-32CD-4B03-8835-497FBDD0FD79%7D&file=Digital%20Media%20Rules%20Rhapsody%204.0.docx&action=default&mobileredirect=true"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/g/personal/tahasaquib_iisc_ac_in/IQDJAc3TzTIDS4g1SX-90P15AS7reZhtSCJ_q2YrNEetUvw"
     },
     {
         title: "Music",
@@ -77,7 +77,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80",
         color: "from-[#FFB800]/30 to-transparent",
         link: "https://forms.office.com/r/fSzECsTSND",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/r/personal/tahasaquib_iisc_ac_in/_layouts/15/Doc.aspx?sourcedoc=%7BD41EBD0A-C6AC-45F7-97EF-8FDA9C43A3DE%7D&file=Music%20Event%20Rules%20Rhapsody%204.0.docx&action=default&mobileredirect=true"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/g/personal/tahasaquib_iisc_ac_in/IQAKvR7UrMb3RZfvj9qcQ6PeAe-UEoGsXPuDBvHHMd6UQe8"
     },
     {
         title: "Business Event",
@@ -90,7 +90,7 @@ const culturalEvents = [
         ],
         image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=80",
         color: "from-[#E2E2E2]/30 to-transparent",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/personal/tahasaquib_iisc_ac_in/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Ftahasaquib%5Fiisc%5Fac%5Fin%2FDocuments%2FRhapsody%2026%2FRhapsody%20Culturals%2FBusiness%20Event%20Rules%20Rhapsody%204%2E0%2Epdf&parent=%2Fpersonal%2Ftahasaquib%5Fiisc%5Fac%5Fin%2FDocuments%2FRhapsody%2026%2FRhapsody%20Culturals"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:b:/g/personal/tahasaquib_iisc_ac_in/IQB2IdGRJC30RLJL5sE3ni6rAQG5k-eCwb-pLIRpwypE4n8"
     },
     {
         title: "Literary Arts",
@@ -99,7 +99,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
         color: "from-[#220202]/30 to-transparent",
         link: "https://forms.office.com/r/0VaDEDHSBq",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/r/personal/tahasaquib_iisc_ac_in/_layouts/15/Doc.aspx?sourcedoc=%7BAA5B4A4B-713A-41A9-85B3-43D98CB63AD9%7D&file=Literary%20art%20event%20Rules%20Rhapsody%204.0.docx&action=default&mobileredirect=true"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/g/personal/tahasaquib_iisc_ac_in/IQBLSluqOnGpQYWzQ9mMtjrZAXMVaaZL4bW7XkvEcofeXd8"
     },
     {
         title: "Speaking Arts",
@@ -108,7 +108,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
         color: "from-[#FFB800]/30 to-transparent",
         link: "https://forms.office.com/r/izgrTZ0yAv",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/r/personal/tahasaquib_iisc_ac_in/_layouts/15/Doc.aspx?sourcedoc=%7B4AA34A7E-92DB-4AFA-885B-E014EAC6C552%7D&file=Speaking%20Arts%20Rules%20Rhapsody%204.0.docx&action=default&mobileredirect=true"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/g/personal/tahasaquib_iisc_ac_in/IQB-SqNK25L6Sohb4BTqxsVSAXWvijE7W7IfdDZJG9LLrVQ?e=0Sda7v"
     },
     {
         title: "Dramatics",
@@ -117,7 +117,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=800&q=80",
         color: "from-[#E2E2E2]/30 to-transparent",
         link: "https://forms.office.com/r/1sC68Qx4m2",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/r/personal/tahasaquib_iisc_ac_in/_layouts/15/Doc.aspx?sourcedoc=%7B87696432-F251-4BDC-9C62-02AA7C193DB9%7D&file=Dramatics%20Rules%20Rhapsody%204.0.docx&action=default&mobileredirect=true"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:w:/g/personal/tahasaquib_iisc_ac_in/IQAyZGmHUfLcS5xiAqp8GT25AUlQSKceeKDG7Y71LN-Uzoc"
     },
     {
         title: "Lifestyle",
@@ -134,7 +134,7 @@ const culturalEvents = [
         image: "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?auto=format&fit=crop&w=800&q=80",
         color: "from-[#FFB800]/30 to-transparent",
         link: "https://forms.office.com/r/u3QGULR5yF",
-        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/personal/tahasaquib_iisc_ac_in/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Ftahasaquib%5Fiisc%5Fac%5Fin%2FDocuments%2FRhapsody%2026%2FRhapsody%20Culturals%2FRhapsody%20Quizzes%20Rulebook%2Epdf&parent=%2Fpersonal%2Ftahasaquib%5Fiisc%5Fac%5Fin%2FDocuments%2FRhapsody%2026%2FRhapsody%20Culturals"
+        rulebookLink: "https://indianinstituteofscience-my.sharepoint.com/:b:/g/personal/tahasaquib_iisc_ac_in/IQBrhc-0cexUSpnW6bba1cytAe_E0dl--SDtze2t5wepzTQ?e=keu7eF"
     }
 ];
 
